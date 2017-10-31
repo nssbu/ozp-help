@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh '''
                   export npm_config_cache=$(mktemp -d)
+                  npm config set cache $npm_config_cache --global
                   npm install bower gulp
                   npm install; npm run build; npm run tarDistDate
                   rm -rf $npm_config_cache
