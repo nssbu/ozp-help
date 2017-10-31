@@ -16,6 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                  npm cache clean
                   npm install bower gulp
                   npm install; npm run build; npm run tarDistDate
                   mv *.tar.gz help.tar.gz
