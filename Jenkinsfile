@@ -22,5 +22,10 @@ pipeline {
                 '''
             }
         }
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'help.tar.gz'
+            }
+        }
     }
 }
