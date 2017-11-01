@@ -16,11 +16,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                  export npm_config_cache=$(mktemp -d)
-                  sudo npm config set cache $npm_config_cache --global
                   npm install bower gulp
-                  npm install --cache $npm_config_cache; npm run build; npm run tarDistDate
-                  rm -rf $npm_config_cache
+                  npm install; npm run build; npm run tarDistDate
                   mv *.tar.gz help.tar.gz
                 '''
             }
